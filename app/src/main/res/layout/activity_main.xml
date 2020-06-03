@@ -5,7 +5,8 @@
 	android:id="@+id/constraint_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:layout_gravity="center">
+	android:layout_gravity="center"
+	android:splitMotionEvents="false">
 
 	<Button
 		android:id="@+id/button_1.1"
@@ -18,13 +19,15 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toTopOf="@+id/button_2.1"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_1.2"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintHorizontal_chainStyle="packed"
 		app:layout_constraintStart_toStartOf="parent"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_1.2"
@@ -39,12 +42,14 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toTopOf="@+id/button_2.2"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_1.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_1.1"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_1.3"
@@ -57,12 +62,14 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toTopOf="@+id/button_2.3"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_1.2"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_2.1"
@@ -74,6 +81,7 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_2.2"
@@ -81,7 +89,8 @@
 		app:layout_constraintHorizontal_chainStyle="packed"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_2.2"
@@ -95,13 +104,15 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_2.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_2.1"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_2.3"
@@ -113,13 +124,15 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_2.2"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_3.1"
@@ -132,13 +145,15 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_3.2"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintHorizontal_chainStyle="packed"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/button_2.1"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_3.2"
@@ -153,12 +168,14 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_3.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_3.1"
 		app:layout_constraintTop_toBottomOf="@+id/button_2.2"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_3.3"
@@ -171,22 +188,44 @@
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
+		android:visibility="gone"
 		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_3.2"
 		app:layout_constraintTop_toBottomOf="@+id/button_2.3"
-		tools:ignore="Suspicious0dp" />
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
+
+	<Spinner
+		android:id="@+id/spinner"
+		style="@style/Widget.AppCompat.Spinner.DropDown"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="16dp"
+		android:textAlignment="center"
+		app:layout_constraintBottom_toBottomOf="@+id/le_button"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/le_button"
+		app:layout_constraintTop_toTopOf="@+id/le_button" />
 
 	<Button
 		android:id="@+id/le_button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="16dp"
+		android:gravity="center"
 		android:onClick="start"
-		android:text="Start"
+		android:text="@string/start_label"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/button_3.2" />
+		app:layout_constraintEnd_toEndOf="@+id/button_3.2"
+		app:layout_constraintStart_toStartOf="@+id/button_3.2"
+		app:layout_constraintTop_toBottomOf="@+id/button_3.2"
+		app:layout_constraintVertical_bias="0.42000002" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
