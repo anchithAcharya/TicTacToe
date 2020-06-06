@@ -9,25 +9,26 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
+import java.io.Serializable
 
-lateinit var buttonList: List<Button>
+lateinit var buttonList: MutableList<Button>
 lateinit var startButton: Button
 lateinit var spinner: Spinner
+var resume: Boolean = false
 
 class MainActivity : AppCompatActivity()
 {
 
-	object Player
+	object Player: Serializable
 	{
 		var isPlayerTurn: Boolean = true
-		var turnEnded: Boolean = false
+		var turnEnded: Boolean = true
 		var symbol: String = ""
 
 		fun altSymbol(symbol: String = Player.symbol) = when (symbol)
 		{
 			"X" -> "O"
-			"O" -> "X"
-			else -> null
+			else -> "X"
 		}
 	}
 
@@ -74,48 +75,66 @@ class MainActivity : AppCompatActivity()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
-		buttonList =
-			listOf(findViewById(R.id.button_1_1),                            //add all buttons to global buttonList for easy access throughout the class
-				findViewById(R.id.button_1_2),
-				findViewById(R.id.button_1_3),
-				findViewById(R.id.button_2_1),
-				findViewById(R.id.button_2_2),
-				findViewById(R.id.button_2_3),
-				findViewById(R.id.button_3_1),
-				findViewById(R.id.button_3_2),
-				findViewById(R.id.button_3_3)
-				  )
+		if (savedInstanceState == null)
+		{
+			buttonList =
+				mutableListOf(findViewById(R.id.button_1_1),                            //add all buttons to global buttonList for easy access throughout the class
+					findViewById(R.id.button_1_2),
+					findViewById(R.id.button_1_3),
+					findViewById(R.id.button_2_1),
+					findViewById(R.id.button_2_2),
+					findViewById(R.id.button_2_3),
+					findViewById(R.id.button_3_1),
+					findViewById(R.id.button_3_2),
+					findViewById(R.id.button_3_3)
+							 )
 
-		startButton = findViewById(R.id.le_button)
-		spinner = findViewById(R.id.spinner)
+			startButton = findViewById(R.id.le_button)
+			spinner = findViewById(R.id.spinner)
 
-		val spinner = findViewById<Spinner>(R.id.spinner)
-		val adapter = MyMediaAdapter(this, listOf("X", "O", null), listOf(false, false, true))
-		spinner.adapter = adapter
-		spinner.setSelection(2)
+			val spinner = findViewById<Spinner>(R.id.spinner)
+			val adapter = MyMediaAdapter(this, listOf("X", "O", null), listOf(false, false, true))
+			spinner.adapter = adapter
+			spinner.setSelection(2)
+		}
+
+		else
+		{
+			val newPlayer = savedInstanceState.get("player") as Player
+			Player.apply {
+				symbol = newPlayer.symbol
+				isPlayerTurn = newPlayer.isPlayerTurn
+				turnEnded = newPlayer.turnEnded }
+
+			resume = true
+			startButton.performClick()
+		}
 	}
 
 	fun start(view: View)
 	{
-		for (button in buttonList)
-		{
-			button.text = ""
-			button.visibility = View.VISIBLE
-		}
 
 		view.visibility = View.GONE
 		spinner.visibility = View.GONE
 
-		scope.launch { play(playAs = spinner.selectedItem?.toString()) }
+		if(resume)
+		{
+			buttonList.forEach { it.visibility = View.VISIBLE }
+			scope.launch { play(playAs = Player.symbol, seed = Player.isPlayerTurn) }
+		}
+
+		else
+		{
+			buttonList.forEach { it.text = ""; it.visibility = View.VISIBLE }
+			scope.launch { play(playAs = spinner.selectedItem?.toString()) }
+		}
+
+		resume = false
 	}
 
 	fun click(view: View)
 	{
-		for (button in buttonList)
-		{
-			button.isClickable = false
-			button.postInvalidate()
-		}
+		buttonList.forEach { it.isClickable = false }
 
 		val button = view as Button
 
@@ -164,11 +183,7 @@ class MainActivity : AppCompatActivity()
 
 				withContext(Dispatchers.Main.immediate)
 				{
-					for (view in buttonList)
-					{
-						view.isClickable = true
-						view.invalidate()
-					}
+					buttonList.forEach {it.isClickable = true; it.visibility = View.VISIBLE}
 				}
 
 				while (!Player.turnEnded) delay(1000)
@@ -240,5 +255,12 @@ class MainActivity : AppCompatActivity()
 		}
 
 		return false
+	}
+
+	override fun onSaveInstanceState(outState: Bundle)
+	{
+		super.onSaveInstanceState(outState)
+
+		outState.putSerializable("player", Player)
 	}
 }

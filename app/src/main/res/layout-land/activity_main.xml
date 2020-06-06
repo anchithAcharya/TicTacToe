@@ -9,6 +9,27 @@
 	android:splitMotionEvents="false">
 
 	<Button
+		android:id="@+id/button_1.2"
+		style="@style/Widget.AppCompat.Button.Colored"
+		android:layout_width="86dp"
+		android:layout_height="wrap_content"
+
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="16dp"
+		android:clickable="false"
+		android:onClick="click"
+		android:text=""
+		android:textSize="50sp"
+		android:visibility="gone"
+		app:layout_constraintBottom_toTopOf="@+id/button_2.2"
+		app:layout_constraintEnd_toStartOf="@+id/button_1.3"
+		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintStart_toEndOf="@+id/button_1.1"
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
+
+	<Button
 		android:id="@+id/button_1.1"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="wrap_content"
@@ -21,7 +42,6 @@
 		android:textSize="50sp"
 		android:visibility="gone"
 		app:layout_constraintBottom_toTopOf="@+id/button_2.1"
-		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toStartOf="@+id/button_1.2"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintHorizontal_chainStyle="packed"
@@ -30,31 +50,9 @@
 		tools:visibility="visible" />
 
 	<Button
-		android:id="@+id/button_1.2"
-		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-
-		android:layout_marginStart="16dp"
-		android:layout_marginEnd="16dp"
-		android:layout_marginBottom="16dp"
-		android:clickable="false"
-		android:onClick="click"
-		android:text=""
-		android:textSize="50sp"
-		android:visibility="gone"
-		app:layout_constraintBottom_toTopOf="@+id/button_2.2"
-		app:layout_constraintDimensionRatio="h,1"
-		app:layout_constraintEnd_toStartOf="@+id/button_1.3"
-		app:layout_constraintHorizontal_bias="0.5"
-		app:layout_constraintStart_toEndOf="@+id/button_1.1"
-		tools:ignore="Suspicious0dp"
-		tools:visibility="visible" />
-
-	<Button
 		android:id="@+id/button_1.3"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
 		android:layout_marginBottom="16dp"
@@ -64,7 +62,6 @@
 		android:textSize="50sp"
 		android:visibility="gone"
 		app:layout_constraintBottom_toTopOf="@+id/button_2.3"
-		app:layout_constraintDimensionRatio="h,1"
 		app:layout_constraintEnd_toEndOf="@+id/button_2.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_1.2"
@@ -74,126 +71,121 @@
 	<Button
 		android:id="@+id/button_2.1"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
+		android:layout_marginBottom="16dp"
 		android:clickable="false"
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
 		android:visibility="gone"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintDimensionRatio="h,1"
+		app:layout_constraintBottom_toTopOf="@+id/button_3.1"
 		app:layout_constraintEnd_toStartOf="@+id/button_2.2"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintHorizontal_chainStyle="packed"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/button_3.1"
 		tools:ignore="Suspicious0dp"
 		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_2.2"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
 		android:layout_marginStart="16dp"
 		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="16dp"
 		android:clickable="false"
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
 		android:visibility="gone"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintDimensionRatio="h,1"
+		app:layout_constraintBottom_toTopOf="@+id/button_3.2"
 		app:layout_constraintEnd_toStartOf="@+id/button_2.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_2.1"
-		app:layout_constraintTop_toTopOf="parent"
 		tools:ignore="Suspicious0dp"
 		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_2.3"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
+		android:layout_marginBottom="16dp"
 		android:clickable="false"
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
 		android:visibility="gone"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintDimensionRatio="h,1"
-		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintBottom_toTopOf="@+id/button_3.3"
+		app:layout_constraintEnd_toEndOf="@+id/button_3.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_2.2"
-		app:layout_constraintTop_toTopOf="parent"
-		tools:ignore="Suspicious0dp"
-		tools:visibility="visible" />
-
-	<Button
-		android:id="@+id/button_3.1"
-		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-
-		android:layout_marginTop="16dp"
-		android:clickable="false"
-		android:onClick="click"
-		android:text=""
-		android:textSize="50sp"
-		android:visibility="gone"
-		app:layout_constraintDimensionRatio="h,1"
-		app:layout_constraintEnd_toStartOf="@+id/button_3.2"
-		app:layout_constraintHorizontal_bias="0.5"
-		app:layout_constraintHorizontal_chainStyle="packed"
-		app:layout_constraintStart_toStartOf="@+id/button_2.1"
-		app:layout_constraintTop_toBottomOf="@+id/button_2.1"
 		tools:ignore="Suspicious0dp"
 		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_3.2"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
 		android:layout_marginStart="16dp"
-		android:layout_marginTop="16dp"
 		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="32dp"
 		android:clickable="false"
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
 		android:visibility="gone"
-		app:layout_constraintDimensionRatio="h,1"
+		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toStartOf="@+id/button_3.3"
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toEndOf="@+id/button_3.1"
-		app:layout_constraintTop_toBottomOf="@+id/button_2.2"
+		tools:ignore="Suspicious0dp"
+		tools:visibility="visible" />
+
+	<Button
+		android:id="@+id/button_3.1"
+		style="@style/Widget.AppCompat.Button.Colored"
+		android:layout_width="86dp"
+		android:layout_height="wrap_content"
+
+		android:layout_marginStart="32dp"
+		android:layout_marginBottom="32dp"
+		android:clickable="false"
+		android:onClick="click"
+		android:text=""
+		android:textSize="50sp"
+		android:visibility="gone"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/button_3.2"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintHorizontal_chainStyle="packed"
+		app:layout_constraintStart_toStartOf="parent"
 		tools:ignore="Suspicious0dp"
 		tools:visibility="visible" />
 
 	<Button
 		android:id="@+id/button_3.3"
 		style="@style/Widget.AppCompat.Button.Colored"
-		android:layout_width="0dp"
+		android:layout_width="86dp"
 		android:layout_height="wrap_content"
 
-		android:layout_marginTop="16dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="32dp"
 		android:clickable="false"
 		android:onClick="click"
 		android:text=""
 		android:textSize="50sp"
 		android:visibility="gone"
-		app:layout_constraintDimensionRatio="h,1"
-		app:layout_constraintEnd_toEndOf="@+id/button_2.3"
-		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toEndOf="@+id/button_3.2"
-		app:layout_constraintTop_toBottomOf="@+id/button_2.3"
 		tools:ignore="Suspicious0dp"
 		tools:visibility="visible" />
 
@@ -208,6 +200,7 @@
 		android:layout_marginEnd="16dp"
 		android:layout_marginBottom="16dp"
 		android:textAlignment="center"
+		android:visibility="visible"
 		app:layout_constraintBottom_toBottomOf="@+id/le_button"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toEndOf="@+id/le_button"
@@ -217,15 +210,22 @@
 		android:id="@+id/le_button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
-		android:layout_marginBottom="16dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginBottom="32dp"
 		android:gravity="center"
 		android:onClick="start"
 		android:text="@string/start_label"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="@+id/button_3.2"
-		app:layout_constraintStart_toStartOf="@+id/button_3.2"
-		app:layout_constraintTop_toBottomOf="@+id/button_3.2"
-		app:layout_constraintVertical_bias="0.42000002" />
+		app:layout_constraintStart_toEndOf="@+id/button_3.3"
+		app:layout_constraintTop_toTopOf="@+id/button_3.3"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<androidx.constraintlayout.widget.Group
+		android:id="@+id/group"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		app:constraint_referenced_ids="button_2.3,button_3.3,button_2.1,button_1.3,button_2.2,button_3.2,button_3.1,button_1.1,button_1.2"
+		tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
