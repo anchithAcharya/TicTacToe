@@ -2,11 +2,13 @@ package com.anchith.tictactoe
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 
@@ -16,7 +18,6 @@ lateinit var spinner: Spinner
 
 class MainActivity : AppCompatActivity()
 {
-
 	object Player
 	{
 		var isPlayerTurn: Boolean = true
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity()
 		}
 	}
 
+	@SuppressLint("SetTextI18n")
 	override fun onCreate(savedInstanceState: Bundle?)
 	{
 		super.onCreate(savedInstanceState)
@@ -86,6 +88,11 @@ class MainActivity : AppCompatActivity()
 				findViewById(R.id.button_3_3)
 				  )
 
+		for (button in buttonList)
+		{
+			button.text = "TicTacToe".elementAt(buttonList.indexOf(button)).toString()
+		}
+
 		startButton = findViewById(R.id.le_button)
 		spinner = findViewById(R.id.spinner)
 
@@ -100,7 +107,7 @@ class MainActivity : AppCompatActivity()
 		for (button in buttonList)
 		{
 			button.text = ""
-			button.visibility = View.VISIBLE
+			button.isEnabled = true
 		}
 
 		view.visibility = View.GONE
@@ -109,6 +116,7 @@ class MainActivity : AppCompatActivity()
 		scope.launch { play(playAs = spinner.selectedItem?.toString()) }
 	}
 
+	@RequiresApi(Build.VERSION_CODES.M)
 	fun click(view: View)
 	{
 		for (button in buttonList)
@@ -126,6 +134,15 @@ class MainActivity : AppCompatActivity()
 				true -> Player.symbol
 				false -> Player.altSymbol()
 			}
+
+			val shadowColor = when (button.text)
+			{
+				"X" -> getColor(R.color.color_X)
+				else -> getColor(R.color.color_O)
+			}
+
+			button.setTextColor(shadowColor)
+			button.apply { setShadowLayer(shadowRadius, shadowDx, shadowDy, shadowColor) }
 		}
 		else Player.isPlayerTurn = !Player.isPlayerTurn
 
@@ -240,5 +257,16 @@ class MainActivity : AppCompatActivity()
 		}
 
 		return false
+	}
+
+	fun revealInfo(view: View)
+	{
+		val about = findViewById<TextView>(R.id.about)
+
+		about.visibility = when (about.visibility)
+		{
+			View.VISIBLE -> View.GONE
+			else -> View.VISIBLE
+		}
 	}
 }
