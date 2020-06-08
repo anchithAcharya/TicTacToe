@@ -11,6 +11,39 @@
 	android:splitMotionEvents="false"
 	android:visibility="visible">
 
+	<ImageButton
+		android:id="@+id/imageButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:background="#00FFFFFF"
+		android:onClick="revealInfo"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+	<TextView
+		android:id="@+id/about"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginBottom="16dp"
+		android:background="@drawable/about_textview_dark"
+		android:padding="10dp"
+		android:text="@string/about_text"
+		android:textAlignment="center"
+		android:textColor="#D8D8D8"
+		android:textSize="16sp"
+		android:visibility="gone"
+		app:layout_constraintBottom_toTopOf="@+id/button_1.2"
+		app:layout_constraintEnd_toEndOf="@+id/imageButton"
+		app:layout_constraintHorizontal_bias="1.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/imageButton"
+		app:layout_constraintVertical_bias="0.0"
+		tools:visibility="visible" />
+
 	<Button
 		android:id="@+id/button_1.1"
 		style="@style/Widget.AppCompat.Button.Colored"
@@ -19,7 +52,6 @@
 
 		android:layout_marginBottom="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -49,7 +81,6 @@
 		android:layout_marginEnd="16dp"
 		android:layout_marginBottom="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -76,7 +107,6 @@
 
 		android:layout_marginBottom="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -102,7 +132,6 @@
 		android:layout_height="wrap_content"
 
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -132,7 +161,6 @@
 		android:layout_marginStart="16dp"
 		android:layout_marginEnd="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -159,7 +187,6 @@
 		android:layout_height="wrap_content"
 
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -187,7 +214,6 @@
 
 		android:layout_marginTop="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -217,7 +243,6 @@
 		android:layout_marginTop="16dp"
 		android:layout_marginEnd="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -244,7 +269,6 @@
 
 		android:layout_marginTop="16dp"
 		android:background="@drawable/main_button_dark"
-		android:backgroundTint="#595959"
 		android:clickable="false"
 		android:onClick="click"
 		android:padding="8dp"
@@ -276,14 +300,14 @@
 		android:backgroundTint="#393939"
 		android:textAlignment="center"
 		android:theme="@style/ThemeOverlay.AppCompat.Dark"
-		app:layout_constraintBottom_toBottomOf="@+id/le_button"
+		app:layout_constraintBottom_toBottomOf="@+id/start_button"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toEndOf="@+id/le_button"
-		app:layout_constraintTop_toTopOf="@+id/le_button"
+		app:layout_constraintStart_toEndOf="@+id/start_button"
+		app:layout_constraintTop_toTopOf="@+id/start_button"
 		tools:visibility="visible" />
 
 	<Button
-		android:id="@+id/le_button"
+		android:id="@+id/start_button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
@@ -299,38 +323,15 @@
 		app:layout_constraintTop_toBottomOf="@+id/button_3.2"
 		app:layout_constraintVertical_bias="0.42000002" />
 
-	<ImageButton
-		android:id="@+id/imageButton"
+	<TextView
+		android:id="@+id/result_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
-		android:layout_marginEnd="16dp"
-		android:background="#00FFFFFF"
-		android:onClick="revealInfo"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:srcCompat="@android:drawable/ic_menu_info_details" />
-
-	<TextView
-		android:id="@+id/about"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginEnd="16dp"
-		android:layout_marginBottom="16dp"
-		android:background="@drawable/about_textview_dark"
-		android:padding="10dp"
-		android:text="@string/about_text"
 		android:textAlignment="center"
-		android:textColor="#D8D8D8"
-		android:textSize="16sp"
-		android:visibility="gone"
-		app:layout_constraintBottom_toTopOf="@+id/button_1.2"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="1.0"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/imageButton"
-		app:layout_constraintVertical_bias="0.0"
-		tools:visibility="visible" />
+		android:textColor="#FFFFFF"
+		app:layout_constraintEnd_toEndOf="@+id/button_3.2"
+		app:layout_constraintStart_toStartOf="@+id/button_3.2"
+		app:layout_constraintTop_toBottomOf="@+id/button_3.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

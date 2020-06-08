@@ -7,5 +7,5 @@
 		android:width="2dp"
 		android:color="@color/colorAccent" />
 	// set color and width of border
-	<solid android:color="#595959" />
+	<solid android:color="@color/playable_buttons_colour" />
 </shape>
