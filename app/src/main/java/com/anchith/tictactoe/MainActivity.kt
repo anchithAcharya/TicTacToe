@@ -1,5 +1,7 @@
 package com.anchith.tictactoe
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.BlendMode
@@ -8,6 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -220,7 +223,7 @@ class MainActivity : AppCompatActivity()
 	@RequiresApi(Build.VERSION_CODES.Q)
 	private fun isWin(): Boolean
 	{
-		fun buttonTrio(a: Int, b: Int, c: Int) = listOf(buttonList[a], buttonList[b], buttonList[c])
+		fun makeTrio(a: Int, b: Int, c: Int) = listOf(buttonList[a], buttonList[b], buttonList[c])
 		fun changeBackground(trio: List<Button>, color: Int) = trio.forEach {
 			it.backgroundTintList =
 				ContextCompat.getColorStateList(this, color); it.backgroundTintBlendMode =
@@ -250,7 +253,7 @@ class MainActivity : AppCompatActivity()
 
 			if (range[3] == 0)
 			{
-				trio = buttonTrio(range[0], range[1], range[2])
+				trio = makeTrio(range[0], range[1], range[2])
 
 				when (buttonTextEqual(trio))
 				{
@@ -269,7 +272,7 @@ class MainActivity : AppCompatActivity()
 			{
 				for (i in range.subList(0, 3))
 				{
-					trio = buttonTrio(i, i + range[3], i + (range[3] * 2))
+					trio = makeTrio(i, i + range[3], i + (range[3] * 2))
 
 					when (buttonTextEqual(trio))
 					{
@@ -300,10 +303,67 @@ class MainActivity : AppCompatActivity()
 	{
 		val about = findViewById<TextView>(R.id.about)
 
-		about.visibility = when (about.visibility)
+		when (about.visibility)
 		{
-			View.VISIBLE -> View.GONE
-			else -> View.VISIBLE
+			View.VISIBLE -> about.animateVisibility(false)
+			View.GONE -> about.animateVisibility(true)
+			else -> Unit
+		}
+	}
+
+	private fun View.animateVisibility(setVisible: Boolean)
+	{
+		if (setVisible)
+		{
+			this.scaleX = 0F
+			this.scaleY = 0F
+
+			animateView(this, true)
+		}
+		else animateView(this, false)
+	}
+
+	private fun animateView(v: View, expand: Boolean)
+	{
+		val valueAnimator = ValueAnimator.ofInt(0, 100)
+
+		valueAnimator.addListener(object : Animator.AnimatorListener
+		{
+
+			override fun onAnimationStart(animation: Animator)
+			{
+				if (expand) v.visibility = View.VISIBLE
+			}
+
+			override fun onAnimationEnd(animation: Animator)
+			{
+				if (!expand) v.visibility = View.GONE
+			}
+
+			override fun onAnimationCancel(animation: Animator)
+			{
+			}
+
+			override fun onAnimationRepeat(animation: Animator)
+			{
+			}
+		})
+
+		valueAnimator.addUpdateListener { animation ->
+			v.scaleX = animation.animatedFraction
+			v.scaleY = animation.animatedFraction
+			(v as TextView).textScaleX = animation.animatedFraction
+			v.alpha = animation.animatedFraction
+			v.requestLayout()
+		}
+
+		valueAnimator.duration = 300
+		valueAnimator.interpolator = DecelerateInterpolator()
+
+		when (expand)
+		{
+			true -> valueAnimator.start()
+			false -> valueAnimator.reverse()
 		}
 	}
 }
